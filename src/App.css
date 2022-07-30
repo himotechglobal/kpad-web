@@ -448,6 +448,9 @@ body {
 }
 
 @media (max-width: 767.98px) {
+  .wrap-2 .bag-8 ul{
+    gap:32px !important;
+  }
   .wrap-4 .bag-20 {
     margin-top: 12px;
     display: flex;
