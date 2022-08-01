@@ -436,6 +436,9 @@ body {
   background-image: url(https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-6.jpg) !important;
 }
 @media (max-width: 575.98px) {
+  .bg-image{
+    height: auto !important;
+  }
   .wrap-1 ul {
     gap: 0 !important;
   }
@@ -445,11 +448,26 @@ body {
   .wrap-2 {
     padding: 40px 0 0 !important;
   }
+  .wrap-1 ul {
+    gap: 0 !important;
+  }
+  .wrap-3 .bag-12{
+    margin-top: 46px !important;
+  }
+  .wrap-3 .bag-12 {
+    height: 285px !important;
+}
 }
 
 @media (max-width: 767.98px) {
-  .wrap-2 .bag-8 ul{
-    gap:32px !important;
+  .bg-image{
+    height: auto !important;
+  }
+  .wrap-1 ul {
+    gap: 0 !important;
+  }
+  .wrap-2 .bag-8 ul {
+    gap: 32px !important;
   }
   .wrap-4 .bag-20 {
     margin-top: 12px;
@@ -486,7 +504,7 @@ body {
   .bag-71 {
     display: block;
     color: #fff;
-    font-size: 23px;
+    font-size: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -495,17 +513,29 @@ body {
   .bag-71 p {
     display: block;
     color: #fff;
-    font-size: 23px;
+    font-size: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
     font-weight: 500;
   }
+  .wrap-3 .bag-12{
+    margin-top: 46px !important;
+  }
+  .wrap-3 .bag-12 {
+    height: 285px !important;
+}
 }
 
 @media (max-width: 991.98px) {
+  .wrap-1 ul {
+    gap: 0 !important;
+  }
+  .wrap-3 .bag-13{
+    margin-top: 60px !important;
+  }
   .wrap-3 .bag-12 {
-    height: 565px;
+    height: 361px !important;
   }
 }
 @media (max-width: 1199.98px) {

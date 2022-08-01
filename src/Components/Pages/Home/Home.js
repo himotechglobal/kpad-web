@@ -71,7 +71,7 @@ const Home = () => {
       <section className="wrap-3">
         <div className="container">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-11">
                   <h2>What is Kpad?</h2>
@@ -85,7 +85,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-12">
                   <h2>Get Started</h2>
@@ -99,7 +99,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-13">
                   <h2>What is Kpad?</h2>
@@ -148,7 +148,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Min allocation</th>
@@ -196,7 +196,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Min allocation</th>
@@ -260,7 +260,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Total Raise</th>
@@ -328,7 +328,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Total Raise</th>
@@ -412,7 +412,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Total Raise</th>
@@ -480,7 +480,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Total Raise</th>
@@ -564,7 +564,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Min allocation</th>
@@ -612,7 +612,7 @@ const Home = () => {
                         characters, body parts, and item ownership.
                       </p>
                       <div className="table-responsive">
-                        <table class="table table-borderless">
+                        <table className="table table-borderless">
                           <thead>
                             <tr>
                               <th>Min allocation</th>
