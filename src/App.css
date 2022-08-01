@@ -27,7 +27,7 @@ body {
 }
 .wrap-1 ul {
   display: flex !important;
-  gap: 49px;
+  gap: 38px;
 }
 .wrap-1 ul li {
   /* margin: 0 20px; */
@@ -69,6 +69,7 @@ body {
 }
 .wrap-2 .bag-6 {
   padding: 8rem 0 0;
+  text-align: center;
 }
 .wrap-2 .bag-6 p {
   color: #fff;
@@ -198,7 +199,7 @@ body {
   border-width: 0px 0px thin;
   /* background: rgba(10, 25, 41, 0.7); */
   color: rgb(160, 170, 180);
-  height: 364px;
+  height: 436px;
 }
 .wrap-3 .bag-12::before {
   content: "";
@@ -423,7 +424,7 @@ body {
   justify-content: center;
 }
 .wrap-6 .bag-25 img {
-  width: 3%;
+  /* width: 3%; */
   margin: 0 6px;
 }
 .bag-71 {
@@ -435,8 +436,65 @@ body {
 .navbar-toggler-icon {
   background-image: url(https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-6.jpg) !important;
 }
+.bi-discord{
+  padding: 5px 11px;
+  background: #fff;
+  font-size: 35px;
+  border-radius: 50%;
+  /* width: 10px; */
+  /* height: 162px; */
+  margin-top: 5px !important;
+  position: relative;
+  top: 3px;
+  color: #000;
+}
+.wrap-7{
+  padding: 30px 0 20px;
+  width: 100%;
+  color: #fff !important;
+  text-align: justify !important;
+}
+.wrap-7 .bag-31 {
+  display: flex;
+  justify-content: center;
+}
+.wrap-7 ul{
+  list-style: decimal;
+}
+.bag-34{
+  list-style: disc !important;
+}
+.wrap-8{
+  padding: 30px 0 20px;
+  width: 100%;
+  color: #fff !important;
+  text-align: justify !important;
+}
+.wrap-8 .bag-35 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.css-ahj2mt-MuiTypography-root{
+  color: #fff !important;
+}
+.wrap-6 .bag-66 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.wrap-6 .bag-66 a{
+  color: #fff;
+  text-decoration: none;
+  margin: 0 6px;
+
+}
+.react-pdf__message {display: none !important;}
+.react-pdf__message--error {display: none !important;}
+
 @media (max-width: 575.98px) {
-  .bg-image{
+  .bg-image {
     height: auto !important;
   }
   .wrap-1 ul {
@@ -451,16 +509,19 @@ body {
   .wrap-1 ul {
     gap: 0 !important;
   }
-  .wrap-3 .bag-12{
+  .wrap-3 .bag-12 {
     margin-top: 46px !important;
   }
   .wrap-3 .bag-12 {
-    height: 285px !important;
-}
+    height: 393px !important;
+  }
 }
 
 @media (max-width: 767.98px) {
-  .bg-image{
+  .wrap-3 .bag-12 {
+    height: 393px !important;
+  }
+  .bg-image {
     height: auto !important;
   }
   .wrap-1 ul {
@@ -491,9 +552,9 @@ body {
   .wrap-2 .bag-7 {
     padding: 0 !important;
   }
-  .wrap-3 .bag-12 {
+  /* .wrap-3 .bag-12 {
     height: 338px !important;
-  }
+  } */
   .wrap-6 {
     /* width: 100%; */
     padding: 2rem 0 2rem;
@@ -519,23 +580,23 @@ body {
     justify-content: center;
     font-weight: 500;
   }
-  .wrap-3 .bag-12{
+  .wrap-3 .bag-12 {
     margin-top: 46px !important;
   }
-  .wrap-3 .bag-12 {
+  /* .wrap-3 .bag-12 {
     height: 285px !important;
-}
+  } */
 }
 
 @media (max-width: 991.98px) {
   .wrap-1 ul {
     gap: 0 !important;
   }
-  .wrap-3 .bag-13{
+  .wrap-3 .bag-13 {
     margin-top: 60px !important;
   }
   .wrap-3 .bag-12 {
-    height: 361px !important;
+    height: 436px !important;
   }
 }
 @media (max-width: 1199.98px) {

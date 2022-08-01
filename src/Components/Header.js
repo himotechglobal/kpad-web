@@ -21,9 +21,9 @@ function Header() {
     <section className="wrap-1">
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img src={Logo} alt="" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -53,9 +53,19 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/PrivacyPolicy">
+                Privacy Policy
+                </Link>
+              </li>
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#">
                 Foundation
                 </a>
+              </li> */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/TermsCondition">
+                Terms&Condition
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">

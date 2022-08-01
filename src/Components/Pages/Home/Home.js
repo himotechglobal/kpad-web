@@ -12,6 +12,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Footer from "../../Footer";
 const Home = () => {
   return (
     <>
@@ -21,24 +22,20 @@ const Home = () => {
           <div className="row bg-image">
             <div className="col-md-6">
               <div className="bag-6">
-                <p>
-                  Enter the gateway of <br />
-                  Blockchain Gaming
-                </p>
+                <p>Rollercoaster ride into the world of blockchain</p>
               </div>
             </div>
             <div className="col-md-6">
               <div className="bag-7">
                 <p>
-                  Kpad is an open-source public <br />
-                  blockchain for all who wish to build,
-                  <br /> work, or play in the metaverse.
+                  KlaytnPad is a fully automated launchpad for all Klaytn
+                  Network projects
                 </p>
               </div>
               <div className="bag-71">
                 <p>
-                  Kpad is an open-source public blockchain for all who wish to
-                  build, work, or play in the metaverse.
+                  KlaytnPad is a fully automated launchpad for all Klaytn
+                  Network projects
                 </p>
               </div>
             </div>
@@ -46,19 +43,19 @@ const Home = () => {
               <div className="bag-8">
                 <ul>
                   <li>
-                    <Link to="/">Know more</Link>
+                    <Link to="/">Apply as a project</Link>
                     <i className="fa fa-angle-right"></i>
                   </li>
                   <li>
-                    <Link to="/">Buy on pancake</Link>
+                    <Link to="/">Buy on something</Link>
                     <i className="fa fa-angle-right"></i>
                   </li>
                   <li>
-                    <Link to="/">Buy on Something</Link>
+                    <Link to="/">FAQ</Link>
                     <i className="fa fa-angle-right"></i>
                   </li>
                   <li>
-                    <Link to="/">Buy on Something</Link>
+                    <Link to="/">Klaytnscope</Link>
                     <i className="fa fa-angle-right"></i>
                   </li>
                 </ul>
@@ -74,42 +71,46 @@ const Home = () => {
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-11">
-                  <h2>What is Kpad?</h2>
+                  <h2>What is KlaytnPad:</h2>
                   <p>
-                    Kpad is an open-source public blockchain for all who wish to
-                    build, work, or play in the metaverse.
+                    At KlaytnPad you will get a chance to be a part of unique
+                    and different types of projects like DeFi, blockchain
+                    gaming, NFTs and all those projects which utilize blockchain
+                    for all of us.
                   </p>
-                  <Link to="">
+                  <a href="https://medium.com/@KlaytnPad/introducing-klaytnpad-8bd607b6714f">
                     Read More <i className="fa fa-angle-right"></i>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-12">
-                  <h2>Get Started</h2>
+                  <h2>How to get started</h2>
                   <p>
-                    Kpad is an open-source public blockchain for all who wish to
-                    build, work, or play in the metaverse.
+                    Buy $KPAD tokens according to our three tiers system, hold
+                    in wallet and participate in the sales on FCFS basis
+                    whenever they go live.
                   </p>
-                  <Link to="">
+                  <a href="https://medium.com/@KlaytnPad/get-started-with-us-b4086a12faed">
                     Read More <i className="fa fa-angle-right"></i>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 col-sm-12">
               <div className="bag-10">
                 <div className="bag-13">
-                  <h2>What is Kpad?</h2>
+                  <h2>Klatynpad Tier System</h2>
                   <p>
-                    Kpad is an open-source public blockchain for all who wish to
-                    build, work, or play in the metaverse.
+                    At Klaytnpad, we have 3-Tier System and each tier have its
+                    own allocation pools and max contribution limit and you must
+                    hold our native $KPAD tokens to be eligible for each tier.
                   </p>
-                  <Link to="">
+                  <a href="https://medium.com/@KlaytnPad/klaytnpad-tier-system-83bd9c48c1e5">
                     Read More <i className="fa fa-angle-right"></i>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -669,9 +670,48 @@ const Home = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Those who hold $KPAD will be able to join the token sales of
+                    the projects which will be held at the Launchpad, and get
+                    allocations from these projects before they release to the
+                    market.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion className="bag-27">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                  className="white"
+                >
+                  <Typography>What types of projects will be there?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    The projects that we are going to target will be of
+                    different types like Defi, Gaming, NFTs, and many others. No
+                    doubt that the projects will be convincing however, it is
+                    highly recommended to DYOR (Do Your Own Research) on each
+                    project that we bring here for your peace of mind and to
+                    choose the best for yourself.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion className="bag-26">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                  className="white"
+                >
+                  <Typography>Which tier should you choose?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    We have 3 tier systems named as Diamond, Gold & Silver and
+                    each tier holds the value of some tokens. You need to be
+                    careful while choosing the tier and must keep an eye on your
+                    budget to get the best out of it.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -683,14 +723,15 @@ const Home = () => {
                   className="white"
                 >
                   <Typography>
-                    What is the benefit of $KPAD token holders?
+                    What is the eligibility criteria for participating in IDO?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Investors will need to hold the $KPAD tokens in the wallet
+                    to participate. There is no need to stake. $KPAD LPs will
+                    also NOT count and the tokens must be available in your
+                    wallet to be eligible.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -702,14 +743,15 @@ const Home = () => {
                   className="white"
                 >
                   <Typography>
-                    What is the benefit of $KPAD token holders?
+                    What will be the duration of presales?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    The duration of presales will be 12 hours but it doesn’t
+                    mean that you have completed 12 hours. Sometimes the
+                    presales are all done within a few hours so you need to
+                    speed up a little.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -720,15 +762,49 @@ const Home = () => {
                   id="panel2a-header"
                   className="white"
                 >
+                  <Typography>How to claim the tokens?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                   <Typography>
-                    What is the benefit of $KPAD token holders?
+                    Claiming tokens won’t be airdrops so you will need to claim
+                    IDO tokens manually when your vesting time is ready. You
+                    will need $KPAD tokens in your wallet according to the tier
+                    you participated in to be able to claim tokens and this will
+                    apply to allocations for each vesting cycle.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion className="bag-26">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                  className="white"
+                >
+                  <Typography>
+                    Is there any locking system implemented?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Yes, holders will be able to lock their $KPAD tokens as well
+                    as their $KPAD LPs.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion className="bag-27">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                  className="white"
+                >
+                  <Typography>Is there any tax on $KPAD token?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Yes, there is tax on the Moonpad token. $KPAD will have 5%
+                    LP tax in order to prevent switching wallet.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -737,19 +813,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="wrap-6">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="bag-25">
-                <img src={Img7} alt="" />
-                <img src={Img8} alt="" />
-                <img src={Img9} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </>
   );
 };
