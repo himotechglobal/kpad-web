@@ -59,7 +59,7 @@ body {
 }
 .bg-image {
   background-color: #000;
-  background-image: url(./Components/Images/bg.png);
+  background-image: url(./Components/images/bg.png);
   background-position: center center;
   background-size: 50%;
   background-repeat: no-repeat;
@@ -156,7 +156,7 @@ body {
   height: 112px;
   left: -52px;
   bottom: 2px;
-  background-image: url(./Components/Images/img1.png);
+  background-image: url(./Components/images/img1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -208,7 +208,7 @@ body {
   height: 112px;
   left: -52px;
   bottom: 2px;
-  background-image: url(./Components/Images/img2.png);
+  background-image: url(./Components/images/img2.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -258,7 +258,7 @@ body {
   height: 112px;
   left: -22px;
   bottom: 2px;
-  background-image: url(./Components/Images/img3.png);
+  background-image: url(./Components/images/img3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left bottom;

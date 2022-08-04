@@ -1,7 +1,8 @@
 import React from "react";
 
-import Logo from "./Images/Logo.png";
+import Logo from "./images/Logo.png";
 import { Link } from "react-router-dom";
+import ConnectButton from "../Components/Pages/ConnectButton";
 
 function Header() {
 
@@ -74,7 +75,7 @@ function Header() {
               </li>
               <li className="nav-item">
                <div className="bag-2">
-               <button className="btn btn-primary">Buy</button>
+                <ConnectButton />
                </div>
               </li>
             </ul>
