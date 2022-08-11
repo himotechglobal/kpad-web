@@ -17,7 +17,7 @@ import  PRIVATE_SALE_ABI from '../../../Config/PRIVATE_SALE_ABI.json';
 import  CLAIM_ABI from '../../../Config/CLAIM_ABI.json';
 import  VESTING_CLAIM_ABI from '../../../Config/VESTING_CLAIM_ABI.json';
 import  OLD_PRIVATE_SALE_ABI from '../../../Config/OLD_PRIVATE_SALE_ABI.json';
-
+  
 import  TOKEN_ABI from '../../../Config/TOKEN_ABI.json';
 import { useWallet } from '@binance-chain/bsc-use-wallet';
 import Web3 from 'web3';
