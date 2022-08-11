@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, useEffect , useState } from 'react';
 import Header from "../../Header";
 import { Link } from "react-router-dom";
 import Img4 from "../../images/img4.png";
@@ -13,7 +13,88 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Footer from "../../Footer";
+
+import { OLD_PRIVATE_SALE, PRIVATE_SALE } from '../../../Config/index.js';
+import  PRIVATE_SALE_ABI from '../../../Config/PRIVATE_SALE_ABI.json';
+import  TOKEN_ABI from '../../../Config/TOKEN_ABI.json';
+import { useWallet } from '@binance-chain/bsc-use-wallet';
+import Web3 from 'web3';
+import PadCard from '../padchain/PadCard';
+import OldPadCard from '../padchain/OldPadCard.js';
 const Home = () => {
+
+
+  const wallet = useWallet() ;
+	let web3Provider  = window.ethereum ; 
+	const [upcomingArray,setUpcomingArray] = useState([]);
+	const [liveArray,setLiveArray] = useState([]);
+	const [successArray,setSuccessArray] = useState([]);
+	const [failArray,setFailArray] = useState([]);
+ 
+
+	
+	useEffect(() => {
+		if(window.ethereum){
+			web3Provider  = window.ethereum;
+		  }
+		  else{
+			web3Provider = new Web3.providers.HttpProvider('https://bsc-dataseed.binance.org/')
+		   
+		  }
+		  init()
+	},[])
+
+
+  const init = async () => {
+		let _web3 = new Web3(web3Provider);
+		let _privateSaleContract = new _web3.eth.Contract(PRIVATE_SALE_ABI,PRIVATE_SALE);
+		let _arrayLength = await _privateSaleContract.methods.getPresaleCount().call()  ;
+		console.log(_arrayLength);
+
+		let _upcomingArray = [] ; 
+		let _liveArray = [] ; 
+		let _successArray = [] ; 
+		let _failArray = [] ; 
+		for(let i = 0 ; i < _arrayLength ; i++){
+
+		let _presale = await _privateSaleContract.methods.getPresale(i).call()  ;
+
+		if(_presale.status == 1 && _presale.startTime > new Date().getTime()/1e3 ){
+			_upcomingArray.push({
+				count: i 
+			});
+		}
+		else if(_presale.status == 1 && _presale.startTime < new Date().getTime()/1e3 ){
+			_liveArray.push({
+				count: i 
+			});
+		}
+		else if(_presale.status == 2  || _presale.status == 4 || _presale.status == 5 || _presale.status == 6 ){
+			_successArray.push({
+				count: i 
+			});
+		}
+		else if(_presale.status == 3  && _presale.raisedAmount > 0 ){
+			_failArray.push({
+				count: i 
+			});
+		}
+			
+
+
+			if(i == (_arrayLength  -1)){
+
+				setUpcomingArray(_upcomingArray.reverse());
+				setLiveArray(_liveArray.reverse());
+				setSuccessArray(_successArray.reverse());
+				setFailArray(_failArray.reverse());
+
+			}
+		}
+	  }
+
+
+  
   return (
     <>
       <Header />
@@ -125,108 +206,24 @@ const Home = () => {
               <div className="bag-14">
                 <h2>Upcoming Pool</h2>
               </div>
+              <div className="wrp-list-box">
+								
+								{
+                                         upcomingArray.length > 0 && upcomingArray.map((v,i) => {
+                                             return (
+                                                 <PadCard index={v.count} public={false} old={false}  />
+                                             )
+                                         })
+                                     }
+
+									 {
+										 upcomingArray.length == 0 && 
+										 <div className="text-center w-100 darkBg text-dark emptyCard d-flex align-items-center justify-content-center"><h4>No Presale Available to Show</h4></div>
+
+									 }			
+								</div>
             </div>
-            <div className="col-md-12">
-              <div className="bag-15">
-                <img src={Img4} alt="" />
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Min allocation</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>0.01</td>
-                              <td>TBA</td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17 mt-5">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Min allocation</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>0.01</td>
-                              <td>TBA</td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
       </section>
@@ -237,148 +234,23 @@ const Home = () => {
               <div className="bag-14">
                 <h2>Live Pool</h2>
               </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-15">
-                <img src={Img4} alt="" />
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Total Raise</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                379997.79 <span className="span">BUSD</span>
-                              </td>
-                              <td>
-                                3301.57 <span className="span">BUSD</span>
-                              </td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="bag-18">
-                        <img src={Img6} alt="" />
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="bag-19">
-                            <h6>Progess</h6>
-                            <span>100%</span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="bag-20">
-                            <p>Max Partcipation 4844</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-12 mt-5">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Total Raise</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                379997.79 <span className="span">BUSD</span>
-                              </td>
-                              <td>
-                                3301.57 <span className="span">BUSD</span>
-                              </td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="bag-18">
-                        <img src={Img6} alt="" />
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="bag-19">
-                            <h6>Progess</h6>
-                            <span>100%</span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="bag-20">
-                            <p>Max Partcipation 4844</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <div className="wrp-list-box">
+							{
+                                         liveArray.length > 0 && liveArray.map((v,i) => {
+                                             return (
+                                                 <PadCard index={v.count} public={false} old={false}  />
+                                             )
+                                         })
+                                     }
+
+									 {
+										 liveArray.length == 0 && 
+										 <div className="text-center w-100 darkBg text-dark emptyCard d-flex align-items-center justify-content-center"><h4>No Presale Available to Show</h4></div>
+
+									 }	
+							
+								</div>
+            </div> 
           </div>
         </div>
       </section>
@@ -389,147 +261,26 @@ const Home = () => {
               <div className="bag-14">
                 <h2>Completed Pool</h2>
               </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-15">
-                <img src={Img4} alt="" />
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Total Raise</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                379997.79 <span className="span">BUSD</span>
-                              </td>
-                              <td>
-                                3301.57 <span className="span">BUSD</span>
-                              </td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="bag-18">
-                        <img src={Img6} alt="" />
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="bag-19">
-                            <h6>Progess</h6>
-                            <span>100%</span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="bag-20">
-                            <p>Max Partcipation 4844</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-12 mt-5">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Total Raise</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                379997.79 <span className="span">BUSD</span>
-                              </td>
-                              <td>
-                                3301.57 <span className="span">BUSD</span>
-                              </td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="bag-18">
-                        <img src={Img6} alt="" />
-                      </div>
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="bag-19">
-                            <h6>Progess</h6>
-                            <span>100%</span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="bag-20">
-                            <p>Max Partcipation 4844</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div className="wrp-list-box">
+							
+								 
+							{/* <OldPadCard   public={false}  index={0}  /> */}
+							{
+                                         successArray.length > 0 && successArray.map((v,i) => {
+                                             return (
+                                                 <PadCard index={v.count} public={false} old={false}  />
+                                             )
+                                         })
+                                     }
+
+									 {
+										 successArray.length == 0 && 
+										 <div className="text-center w-100 darkBg text-dark emptyCard d-flex align-items-center justify-content-center"><h4>No Presale Available to Show</h4></div>
+
+									 }
+							 
+									
+								</div>
             </div>
           </div>
         </div>
@@ -541,107 +292,25 @@ const Home = () => {
               <div className="bag-14">
                 <h2>Cancelled Pool</h2>
               </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-15">
-                <img src={Img4} alt="" />
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Min allocation</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>0.01</td>
-                              <td>TBA</td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="bag-16">
-                <div className="bag-17 mt-5">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={Img5} alt="" />
-                    </div>
-                    <div className="col-md-10">
-                      <h6>TOYOVERSE</h6>
-                      <h5>
-                        <span>IN</span> 10 Days
-                      </h5>
-                      <p>
-                        Toyo starts as a play-to-earn strategic PVP/PVE
-                        blockchain fighting game with NFT action-figure
-                        characters, body parts, and item ownership.
-                      </p>
-                      <div className="table-responsive">
-                        <table className="table table-borderless">
-                          <thead>
-                            <tr>
-                              <th>Min allocation</th>
-                              <th>Minimum</th>
-                              <th>Access</th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>0.01</td>
-                              <td>TBA</td>
-                              <td>Public</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div className="wrp-list-box">
+									
+							{
+                                         failArray.length > 0 && failArray.map((v,i) => {
+                                             return (
+                                                 <PadCard index={v.count} public={false} old={false}  />
+                                             )
+                                         })
+                                     }
+
+									 {
+										 failArray.length == 0 && 
+										 <div className="text-center w-100 darkBg text-dark emptyCard d-flex align-items-center justify-content-center"><h4>No Presale Available to Show</h4></div>
+
+									 }	
+
+								 
+									
+								</div>
             </div>
           </div>
         </div>

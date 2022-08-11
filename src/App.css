@@ -27,7 +27,7 @@ body {
 }
 .wrap-1 ul {
   display: flex !important;
-  gap: 38px;
+  gap: 20px;
 }
 .wrap-1 ul li {
   /* margin: 0 20px; */

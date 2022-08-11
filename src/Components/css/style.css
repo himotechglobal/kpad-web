@@ -3116,6 +3116,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator{
     margin-top: 25px;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
+
 .list-box-l{
     color: inherit;
     padding: 20px;
