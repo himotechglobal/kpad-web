@@ -1,14 +1,14 @@
 module.exports = {
-    CHAIN_ID: 97 ,
-    RPC_URL: 'https://bsc-dataseed1.binance.org/' ,
+    CHAIN_ID: 8217 ,
+    RPC_URL: 'https://klaytn02.fandom.finance' ,
     // WIZARD_CONTRACT: '0x5066C68cAe3B9BdaCD6A1A37c90F2d1723559D18',
     // STAKING_CONTRACT: '0x0b4C44583F0Ed7E380D507ADE0e2fBb8cA3A5454',
     // MARKETPLACE: "0x00dFADA96eF7ecb0131e0d3cb36FB854B5cbbbC6" // Live 1
     MARKETPLACE: "0x7B1294C50758ed380C1ff9295fFB1797e33DE7E7", // Live 2
-    EX_LINK: "https://bscscan.com/address/", // Live 2
-    NFT_LINK: "https://bscscan.com/address/", // Live 2
+    EX_LINK: "https://scope.klaytn.com/address/", // Live 2
+    NFT_LINK: "https://scope.klaytn.com/address/", // Live 2
     NFT_BUY : "0x42c4D8341B4B9F2fCCc3C46e37a08F6EDA0501F3",
-    PRIVATE_SALE : "0x655dEA3a6EC20624088e0a2D4607729814AB22f6",
+    PRIVATE_SALE : "0xc7ae34e1284e0ce3cb372ffee656ac27e2a504bb",
     API_URL : "https://game-api-address.herokuapp.com/api",
     GAME_COIN: "0xdD2d0B3D19F3b6d9840eE7d966304a55BD4246De",
     NFT_MAKER : "0x851473b02790d8FB12Db78caf9B24fEce2cB09c2"
